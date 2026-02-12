@@ -80,9 +80,7 @@ de servicios externos.
 
 ## Estilos
 
-Se utiliza Tailwind CSS para mantener una interfaz consistente y limpia,
-evitando estilos personalizados innecesarios y facilitando el mantenimiento
-del código.
+Se utiliza Tailwind CSS. Se mantuvo un diseño mínimo puesto que no se priorizo diseño.
 
 ---
 
