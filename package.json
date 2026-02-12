@@ -1,0 +1,29 @@
+{
+  "name": "simulador-ahorro-digital",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "lucide-react": "^0.563.0",
+    "next": "15.5.12",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "20.11.17",
+    "@types/react": "18.2.55",
+    "@types/react-dom": "18.2.19",
+    "@types/uuid": "^10.0.0",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "5.3.3"
+  }
+}

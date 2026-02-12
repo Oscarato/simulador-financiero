@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Cuenta Ahorro Básica",
+    "type": "Ahorro",
+    "interestRate": 0.02
+  },
+  {
+    "id": 2,
+    "name": "Cuenta Ahorro Premium",
+    "type": "Ahorro",
+    "interestRate": 0.035
+  },
+  {
+    "id": 3,
+    "name": "Depósito Programado",
+    "type": "Inversión",
+    "interestRate": 0.045
+  }
+]
