@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import PageContainer from '@/app/components/PageContainer';
+import { calculateFutureValue } from '@/lib/simulator';
 
 type Errors = {
   initialAmount?: string;
@@ -79,15 +80,14 @@ export default function SimulatorPage() {
 
     const rate = 0.01;
 
-    const interestInitial = initial * rate * months;
-    const totalMonthly = monthly * months;
-    const interestMonthly = monthly * rate * (months * (months + 1) / 2);
-
-    const total =
-      initial +
-      interestInitial +
-      totalMonthly +
-      interestMonthly;
+    const total = calculateFutureValue(
+      {
+        initial,
+        monthly,
+        months,
+        rate,
+      }
+    );    
 
     setResult(Math.round(total));
   };

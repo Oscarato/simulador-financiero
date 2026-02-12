@@ -1,12 +1,16 @@
-// esta function sirve para implementar el debounce en el filtro
-export function debounce<T extends (...args: any[]) => void>(
-  fn: T,
+/**
+ * Debounce con tipado genérico estricto para evitar el error de 'any'.
+ */
+export function debounce<Args extends unknown[]>(
+  fn: (...args: Args) => void, 
   delay: number
 ) {
-  let timer: NodeJS.Timeout;
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-  return (...args: Parameters<T>) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), delay);
+  return function (...args: Args) {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      fn(...args);
+    }, delay);
   };
 }

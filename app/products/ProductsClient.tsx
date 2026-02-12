@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Product } from '@/types/product';
 import { debounce } from '@/lib/debounce';
 
@@ -14,21 +14,24 @@ export default function ProductsClient({ products }: Props) {
   const [query, setQuery] = useState('');
   const [filtered, setFiltered] = useState(products);
 
-  const filterProducts = (value: string) => {
-    const q = value.toLowerCase();
-    setFiltered(
-      products.filter(
-        p =>
-          p.name.toLowerCase().includes(q) ||
-          p.type.toLowerCase().includes(q)
-      )
-    );
-  };
+  const filterProducts = useCallback(
+    (search: string) => {
+      const value = search.toLowerCase();
+
+      setFiltered(
+        products.filter(p =>
+          p.name.toLowerCase().includes(value) ||
+          p.type.toLowerCase().includes(value)
+        )
+      );
+    },
+    [products]
+  );
 
   // Nos ayuda a evitar recrear funciones
   const debouncedFilter = useMemo(
     () => debounce(filterProducts, 300),
-    [products]
+    [filterProducts]
   );
 
   useEffect(() => {
