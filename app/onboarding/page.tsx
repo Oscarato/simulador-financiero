@@ -39,14 +39,13 @@ export default function OnboardingPage() {
   const [submitted, setSubmitted] = useState(false);
 
   /**
-   * SOLUCIÓN DEFINITIVA AL LINTER:
    * useSyncExternalStore es la forma recomendada por React para evitar 
    * el patrón "useEffect + setState". Le dice a React qué renderizar 
    * en el servidor vs cliente de forma segura y sin renders extra.
    */
   const isClient = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  // Inicialización perezosa para el captcha
+  // Inicialización lenta para el captcha
   const [captcha, setCaptcha] = useState<Captcha>(() => createRandomCaptcha());
 
   const handleGenerateCaptcha = useCallback(() => {
